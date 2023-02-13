@@ -30,4 +30,4 @@ function authReducer(state=initialState,action) {
   
 }
 
-export defaul
+export default authReducer
