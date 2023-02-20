@@ -1,10 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { authActionTypes } from '../store/calculator/authReducer';
+import { authActions, authActionTypes } from '../store/calculator/authSlice';
 import classes from './Header.module.css';
 
 const Header = () => {
   const dispatch = useDispatch()
   const isAuthorized = useSelector((state)=>state.auth.isAuthorized)
+
+const logOut=()=>{
+  dispatch(authActions.logOut())
+}
+
   return (
     <header className={classes.header}>
       <h1>Redux Auth</h1>
@@ -18,7 +23,7 @@ const Header = () => {
               <a href="/">My Sales</a>
             </li>
             <li>
-              <button onClick={() => dispatch({type:authActionTypes.LOG_OUT})}>Logout</button>
+              <button onClick={logOut}>Logout</button>
             </li>
           </ul>
         </nav>

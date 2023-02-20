@@ -1,23 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
-import { calculatorActionTypes } from "../store/calculator/calculatorReducer";
+import { calculateActions, calculatorActionTypes } from "../store/calculator/calculatorSlice";
 import classes from "./Counter.module.css";
 
 const Calculator = () => {
-  const result = useSelector((state) => state.calculator.result);
+  const result = useSelector((state) => state.calculate.result);
+  console.log(result);
   const dispatch = useDispatch();
 
   const addHandler = () => {
-    dispatch({ type: calculatorActionTypes.ADD, payload: 5 });
+    dispatch(calculateActions.add(5));
   };
   const divideHandler = () => {
-    dispatch({ type: calculatorActionTypes.DIVIDE, payload: 4 });
+    dispatch(calculateActions.divide(4));
   };
 
   const subtractHandler = () => {
-    dispatch({ type: calculatorActionTypes.SUBTRACT, payload: 10 });
+    dispatch(calculateActions.subtract(10));
   };
   const multiplayHandler = () => {
-    dispatch({ type: calculatorActionTypes.MULTIPLAY, payload: 2 });
+    dispatch(calculateActions.multiplay(2));
   };
 
   return (
